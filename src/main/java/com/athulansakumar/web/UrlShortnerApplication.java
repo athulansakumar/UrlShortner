@@ -1,4 +1,4 @@
-package com.athulansakumar.application;
+package com.athulansakumar.web;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
