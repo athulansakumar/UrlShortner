@@ -17,7 +17,7 @@ apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'application'
 
-mainClassName='com.athulansakumar.UrlShortnerApplication'
+mainClassName='com.athulansakumar.web.UrlShortnerApplication'
 
 bootJar {
     baseName = 'gs-spring-boot'
@@ -32,6 +32,7 @@ sourceCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+//    compile('org.springframework.boot:spring-boot-starter-log4j2')
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }

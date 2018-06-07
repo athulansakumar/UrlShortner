@@ -1,4 +1,4 @@
-package com.athulansakumar;
+package com.athulansakumar.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +18,14 @@ public class UrlShortnerController {
         try {
             httpServletResponse.sendRedirect("http://google.com");
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Exception while redirect",e);
         }
     }
+
+    /*@RequestMapping(value = "/create}", method = RequestMethod.POST)
+    public String createShortUrl(@RequestBody String url) {
+        logger.debug("creating url for --> "+url);
+        String shortUrl = "new ShortUrl";
+        return shortUrl;
+    }*/
 }
