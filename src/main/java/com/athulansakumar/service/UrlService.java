@@ -9,6 +9,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigInteger;
+
 @Service
 public class UrlService {
 
@@ -41,7 +43,15 @@ public class UrlService {
         return url.getShortUrl();
     }
 
-    private String generateShortUrl(String id) {
-        return new ObjectId(id).toHexString();
+    private String generateShortUrl(String id) { String shortId = null;
+    //5b 1a cd 8c 9b 10 de 32 e2 29 26 ef
+        try{
+            String longHexId = new ObjectId(id).toHexString();
+            long number = Long.parseLong(longHexId.toUpperCase().substring(14,24),16);
+            shortId = new BigInteger(""+number).toString(36);
+        }catch (Exception e){
+            logger.error("Exception in generateShortUrl",e);
+        }
+        return shortId;
     }
 }
