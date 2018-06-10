@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Url Shortner</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/url-shortner.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Url Shortner!</h1>
+            <p class="lead">A simple application to create short Urls.</p>
+            <hr class="my-4">
+            <p>Just enter your long url and click on Shorten.</p>
+            <form class="form-inline">
+                <div class="md-form col-md-9" style="padding:0px;">
+                    <input type="text" class="form-control" name="url" id="urlInput" style="width:100%;">
+                    <label for="urlInput" >Enter Url here</label>
+                </div>
+                <a class="btn btn-primary btn-lg" href="#" id="shortenButton" role="button">Shorten</a>
+            </form>
+            <form class="form-inline" id="resultForm" style="display:none;">
+                <div class="md-form col-md-9" style="padding:0px;">
+                    <input type="text" class="form-control" disabled="disabled" name="url" id="shortUrl" style="width:100%;">
+                </div>
+                <a class="btn btn-secondary btn-lg" href="#" id="copyButton" role="button">Copy</a>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <script type="text/javascript" src="js/popper.min.js"></script>
+</body>
+</html>

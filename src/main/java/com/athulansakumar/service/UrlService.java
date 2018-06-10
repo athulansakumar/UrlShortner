@@ -7,6 +7,7 @@ import org.bson.types.ObjectId;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -19,16 +20,19 @@ public class UrlService {
     @Autowired
     private UrlRepository repository;
 
+    @Value("${defaultErrorPage.path}")
+    private String defaultErrorPagePath;
+
     public String findUrlByShortUrl(String shortUrl){
         try {
             UrlEntry url = repository.findByShortUrl(shortUrl);
             if(null!=url){
                 return url.getLongUrl();
             }
-        }catch (Exception e){
-            logger.error("Exception in findUrlByShortUrl",e);
+        }catch (Exception e) {
+            logger.error("Exception in findUrlByShortUrl", e);
         }
-        return null;
+        return defaultErrorPagePath;
     }
 
     public String createNewShortUrl(String longUrl){
